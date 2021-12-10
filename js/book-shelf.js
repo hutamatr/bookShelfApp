@@ -1,10 +1,10 @@
-const uncompleteBookShelfID = 'uncompleteBookShelf';
+const uncompletedBookShelfID = 'uncompleteBookShelf';
 const completedBookShelfID = 'completeBookShelf';
 const localStorageBookShelf = 'localStorageBookShelf';
 const bookShelfItemId = 'itemId';
 
 function addBookShelf() {
-  const uncompleteBookShelf = document.getElementById(uncompleteBookShelfID);
+  const uncompletedBookShelf = document.getElementById(uncompletedBookShelfID);
 
   const titleBookShelf = document.getElementById('inputBookTitle').value;
   const authorBookShelf = 'Author: ' + document.getElementById('inputBookAuthor').value;
@@ -20,7 +20,7 @@ function addBookShelf() {
   if (completeBookShelf) {
     addBookShelfToCompleted(bookShelf);
   } else {
-    uncompleteBookShelf.append(bookShelf);
+    uncompletedBookShelf.append(bookShelf);
   }
 
   updateBookToStorage();
@@ -79,7 +79,7 @@ function addBookShelfToCompleted(bookElement) {
 }
 
 function undoBookShelfFromCompleted(bookElement) {
-  const listUncompleted = document.getElementById(uncompleteBookShelfID);
+  const listUncompleted = document.getElementById(uncompletedBookShelfID);
 
   const bookTitleUndo = bookElement.querySelector('.book-item > .title-container > h3').innerText;
   const bookAuthorUndo = bookElement.querySelectorAll('.book-item > .title-container > p')[0].innerText;
