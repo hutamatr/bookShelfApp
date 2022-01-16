@@ -60,12 +60,19 @@ function makeBookShelf(title, author, year, isCompleted) {
 
 function addBookShelfToCompleted(bookElement) {
   const listCompletedBookShelf = document.getElementById(completedBookShelfID);
-  const bookTittleToCompleted = bookElement.querySelector('.book-item > .title-container > h3').innerText;
+  const bookTittleToCompleted = bookElement.querySelector(
+    '.book-item > .title-container > h3'
+  ).innerText;
   const bookParagraf = bookElement.querySelectorAll('.book-item > .title-container > p');
   const bookAuthorToCompleted = bookParagraf[0].innerText;
   const bookYearToCompleted = bookParagraf[1].innerText;
 
-  const newBookShelf = makeBookShelf(bookTittleToCompleted, bookAuthorToCompleted, bookYearToCompleted, true);
+  const newBookShelf = makeBookShelf(
+    bookTittleToCompleted,
+    bookAuthorToCompleted,
+    bookYearToCompleted,
+    true
+  );
 
   const book = findBook(bookElement[bookShelfItemId]);
   book.isCompleted = true;
@@ -82,8 +89,10 @@ function undoBookShelfFromCompleted(bookElement) {
   const listUncompleted = document.getElementById(uncompletedBookShelfID);
 
   const bookTitleUndo = bookElement.querySelector('.book-item > .title-container > h3').innerText;
-  const bookAuthorUndo = bookElement.querySelectorAll('.book-item > .title-container > p')[0].innerText;
-  const bookYearUndo = bookElement.querySelectorAll('.book-item > .title-container > p')[1].innerText;
+  const bookAuthorUndo = bookElement.querySelectorAll('.book-item > .title-container > p')[0]
+    .innerText;
+  const bookYearUndo = bookElement.querySelectorAll('.book-item > .title-container > p')[1]
+    .innerText;
 
   const newBookUndo = makeBookShelf(bookTitleUndo, bookAuthorUndo, bookYearUndo, false);
 
