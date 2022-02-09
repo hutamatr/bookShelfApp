@@ -59,11 +59,16 @@ function findBookIndex(bookId) {
 }
 
 function refreshDataFromBook() {
-  let listUncompleted = document.getElementById(uncompleteBookShelfID);
+  let listUncompleted = document.getElementById(uncompletedBookShelfID);
   let listCompleted = document.getElementById(completedBookShelfID);
 
   for (book of books) {
-    const newBookShelf = makeBookShelf(book.title, book.author, book.year, book.isCompleted);
+    const newBookShelf = makeBookShelf(
+      book.title,
+      book.author,
+      book.year,
+      book.isCompleted
+    );
     newBookShelf[bookShelfItemId] = book.id;
 
     if (book.isCompleted) {
